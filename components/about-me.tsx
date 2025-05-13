@@ -180,7 +180,6 @@ export default function AboutMe() {
                     <strong>volunteer at the Django Cameroon Community</strong>, where I help organize events and create
                     graphics for different activities.
                   </motion.p>
-                  <motion.p
                 </div>
               </div>
             </motion.div>
@@ -358,7 +357,7 @@ export default function AboutMe() {
   )
 }
 
-function SkillBar({ name, proficiency, delay = 0 }) {
+function SkillBar({ name, proficiency, delay = 0 }: { name: string; proficiency: number; delay?: number }) {
   return (
     <div className="mb-4">
       <div className="flex justify-between mb-1">
@@ -378,7 +377,15 @@ function SkillBar({ name, proficiency, delay = 0 }) {
   )
 }
 
-function AchievementCard({ title, description, details, image, index }) {
+interface AchievementCardProps {
+  title: string;
+  description: string;
+  details: string;
+  image: string;
+  index: number;
+}
+
+function AchievementCard({ title, description, details, image, index }: AchievementCardProps) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
